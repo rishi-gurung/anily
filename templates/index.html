@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anily</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rishi-gurung/anily@main/static/khukhari.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rishi-gurung/anily@main/static/index.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rishi-gurung/anily@main/static/js/index.js"></script>
+
+</head>
+
+<body>
+    <!--
+    <div class="drawer">
+        <div style="margin-top: 8px; background-color: grey;width:100%; height:1px;"></div>
+        <div class="row-a" style="margin-top: 10px;">
+            <div style="color: white;font-weight:700;font-size:20px;">Genres</div>
+        </div>
+        <div style="margin-top: 8px; background-color: grey;width:100%; height:1px;"></div>
+    </div>
+    -->
+    <div class="row-a">
+        <div class="search">
+            <div class="row">
+                <img src="https://cdn.jsdelivr.net/gh/rishi-gurung/anily@main/static/images/search.png" style="width: 56px;height:56px;" alt="">
+                <input type="text" id="serchi" placeholder="Search..." onkeyup="con_search()">
+                <BUtton onclick="document.getElementById(
+                 'serchi').value = ''" style="background-color: white;border:none;">
+                    <i class="material-icons" style="color: black;font-size:22px;">cancel</i>
+                </BUtton>
+                <Button id="cancel">
+                <i class="material-icons" style="color: rgb(213, 157, 157);font-size:30px;">close</i>
+                </Button>
+            </div>
+            <div id="search-result">
+                <div class="row-a">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <div class="row-b">
+            <div class="row-b">
+                <img style="height: 56px; width: 120px;" src="https://cdn.jsdelivr.net/gh/rishi-gurung/anily@main/static/images/logo.png" alt="">
+            </div>
+            <div>
+                <Button class="top-btn" id="search-bt">
+                    <i class="material-icons" style="color: white;font-size:30px;">search</i>
+                </Button>
+                <Button class="top-btn" id="menu">
+                    <i class="material-icons" style="color: white;font-size:30px;">menu</i>
+                </Button>
+            </div>
+        </div>
+    </div>
+    <div style="height: 60px;"></div>
+    <div class="row-a">
+        <div style="color: white;">this site is still in development phase !!! 😅</div>
+    </div>
+    <div class="row-a">
+        <div class="re-hed">Recently added</div>
+    </div>
+    <div class="row-a" style="padding-top: 10px;">
+        <div class="ree">
+            <div class="row">
+                <Button id="sub" class="re-bt">Sub</Button>
+                <div style="width: 6px;"></div>
+                <Button id="raw" class="re-bt">Raw</Button>
+                <div style="width: 6px;"></div>
+                <Button id="dub" class="re-bt">Dub</Button>
+            </div>
+        </div>
+    </div>
+    <div class="sub">
+        <div class="row-a" style="padding-top: 20px;">
+            <div id="grid"></div>
+        </div>
+        <div class="row-a">
+            <Button id="loadmore-sub" style="display: none;">Load more...</Button>
+        </div>
+    </div>
+    <div class="raw">
+        <div class="row-a" style="padding-top: 20px;">
+            <div id="grid"></div>
+        </div>
+        <div class="row-a">
+            <Button id="loadmore-raw" style="display: none;">Load more...</Button>
+        </div>
+    </div>
+    <div class="dub">
+        <div class="row-a" style="padding-top: 20px;">
+            <div id="grid"></div>
+        </div>
+        <div class="row-a">
+            <Button id="loadmore-dub" style="display: none;">Load more...</Button>
+        </div>
+    </div>
+    <div style="height: 40px;"></div>
+    <div style="top:40vh;position:fixed;width:100%;">
+        <div class="row-a" id="loadingi">
+            <img src="/static/images/load.gif" style="height: 256px;width:256px;" alt="">
+        </div>
+    </div>
+
+    <!--<div class="si">
+        <div class="side-menu">
+            <Button id="clo">Close</Button>
+        </div>
+    </div>-->
+
+    <script>
+        function con_search() {
+            $('.row-a #search-result ul').remove();
+            $('#loadingi').show();
+            $.ajax({
+                url: search_url + document.getElementById('serchi').value.toString(),
+                method: "GET"
+            }).done(function(data) {
+                const html = $(data);
+                const liss = html.find("ul");
+                $(".row-a #search-result .row-a div").append(liss);
+                $('#menu-header-menu').remove();
+                $('#loadingi').hide();
+            });
+        }
+        console.log(window.btoa("yXWErC4imGYk" + "LTXs3GrU8we9O" + btoa("yXWErC4imGYk")));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+.row {
+    display: flex;
+}
+
+.row-a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.row-b {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    height: 56px;
+    z-index: 2;
+    box-shadow: rgba(255, 255, 255, 0.15) 1.95px 1.95px 2.6px;
+}
