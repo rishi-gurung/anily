@@ -9,3 +9,7 @@ def index():
 def watch(id):
     a = str(id).replace("-"," ")
     return render_template("watch.html", vid=id, vidi=a.title())
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
