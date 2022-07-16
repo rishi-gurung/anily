@@ -11,5 +11,5 @@ def watch(id):
     return render_template("watch.html", vid=id, vidi=a.title())
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    server_port = int(os.environ.get("PORT", 5000)) 
+    app.run(debug=False, port=server_port, host='0.0.0.0')
